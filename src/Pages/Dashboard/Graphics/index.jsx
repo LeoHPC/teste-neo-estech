@@ -1,5 +1,5 @@
 // REACT
-import { useState, useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 // DATE-FNS
 import { format } from "date-fns";
@@ -47,7 +47,9 @@ export function Graphics() {
   }, []);
 
   useEffect(() => {
-    getData();
+    if (currentInstallation.id !== undefined) {
+      getData();
+    }
   }, []);
 
   if (currentInstallation.id === undefined) {

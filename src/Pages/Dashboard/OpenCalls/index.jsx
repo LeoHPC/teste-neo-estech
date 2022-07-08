@@ -1,15 +1,19 @@
 // REACT
-import { useCallback, useEffect, useState, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 // ANT-DESIGN
-import { Table, Button, Input, Space } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
+import { Button, Input, Space, Table } from "antd";
 
 // HIGHLIGHTER
 import Highlighter from "react-highlight-words";
 
 // COMPONENTS
 import { Loading } from "../../../components/Loading";
+import { Redirect } from "../../../components/Redirect";
+
+// HOOKS
+import { useAuth } from "../../../hooks/auth";
 
 // API
 import api from "../../../lib/api";
@@ -17,10 +21,13 @@ import api from "../../../lib/api";
 export function OpenCalls() {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
+  const { currentInstallation } = useAuth();
 
   const getData = useCallback(async () => {
     setLoading(true);
-    const response = await api.get("/dashboard/teste-dev?cliente&instalacao");
+    const response = await api.get(
+      `/dashboard/teste-dev?cliente&instalacao=${currentInstallation.id}`
+    );
 
     const orderByDate = response.data.chamados_abertos;
 
@@ -33,7 +40,9 @@ export function OpenCalls() {
   }, []);
 
   useEffect(() => {
-    getData();
+    if (currentInstallation.id !== undefined) {
+      getData();
+    }
   }, []);
 
   const [searchText, setSearchText] = useState("");
@@ -152,19 +161,36 @@ export function OpenCalls() {
     },
   ];
 
+  if (currentInstallation.id === undefined) {
+    return <Redirect />;
+  }
+
   if (loading) {
     return <Loading />;
   }
 
   return (
-    <div className="h-[calc(100vh-80px)] bg-zinc-100 w-full sm:px-[2vw] md:px-[5vw] flex items-center justify-center m-auto overflow-y-auto">
-      <Table
-        className="overflow-x-scroll sm:overflow-auto"
-        columns={columns}
-        dataSource={data}
-        rowKey="id"
-        pagination={false}
-      />
+    <div className="h-[calc(100vh-80px)] bg-zinc-100 w-full sm:px-[2vw] md:px-[5vw] flex flex-col items-center justify-center m-auto overflow-y-auto">
+      {data.length === 0 ? (
+        <h1 className="text-red-500 font-bold text-2xl text-center">
+          No momento, não existem chamados abertos para a instalação{" "}
+          {currentInstallation.nome}!
+        </h1>
+      ) : (
+        <>
+          <h1 className="text-zinc-800 text-bold text-xl mb-6 text-center">
+            Chamados abertos atualmente na instalação:{" "}
+            {currentInstallation.nome}
+          </h1>
+          <Table
+            className="overflow-x-scroll sm:overflow-auto"
+            columns={columns}
+            dataSource={data}
+            rowKey="id"
+            pagination={false}
+          />
+        </>
+      )}
     </div>
   );
 }

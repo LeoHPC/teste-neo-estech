@@ -1,5 +1,5 @@
 // REACT
-import { useState, useEffect, useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 // DATE-FNS
 import { format } from "date-fns";
@@ -43,7 +43,9 @@ export function InternetStatus() {
   }, []);
 
   useEffect(() => {
-    getData();
+    if (currentInstallation.id !== undefined) {
+      getData();
+    }
   }, []);
 
   if (currentInstallation.id === undefined) {

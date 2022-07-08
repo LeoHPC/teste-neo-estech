@@ -1,5 +1,7 @@
+// REACT
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+// COMPONENTS
 import { NavBar } from "../components/Navbar";
 import { Dashboard } from "../Pages/Dashboard";
 import { Graphics } from "../Pages/Dashboard/Graphics/index";

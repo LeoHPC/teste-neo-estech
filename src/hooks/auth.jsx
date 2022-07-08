@@ -1,3 +1,4 @@
+// REACT
 import {
   createContext,
   useCallback,
@@ -6,6 +7,7 @@ import {
   useState,
 } from "react";
 
+// API
 import api from "../lib/api";
 
 const AuthContext = createContext({});

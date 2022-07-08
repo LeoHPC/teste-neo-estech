@@ -1,10 +1,15 @@
-import { LoadingOutlined } from "@ant-design/icons";
-import { Button, Form, Input } from "antd";
+// REACT
 import { useState } from "react";
 
+// ANT-DESIGN
+import { LoadingOutlined } from "@ant-design/icons";
+import { Button, Form, Input } from "antd";
+
+// ASSETS
 import IllustrationImage from "../../assets/bg-2.png";
 import LogoImage from "../../assets/logo.png";
 
+// HOOKS
 import { useAuth } from "../../hooks/auth";
 
 export function Login() {

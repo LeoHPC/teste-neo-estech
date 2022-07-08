@@ -1,13 +1,18 @@
+// REACT
+import { useState, useEffect, useCallback } from "react";
+
+// DATE-FNS
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
-import { useCallback } from "react";
-import { useState } from "react";
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
 
+// COMPONENTS
 import { Loading } from "../../../components/Loading";
 import { Redirect } from "../../../components/Redirect";
+
+// HOOKS
 import { useAuth } from "../../../hooks/auth";
+
+// API
 import api from "../../../lib/api";
 
 export function InternetStatus() {

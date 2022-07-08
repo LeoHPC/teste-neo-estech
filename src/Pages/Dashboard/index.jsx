@@ -1,5 +1,8 @@
+// COMPONENTS
 import { ClientCard } from "../../components/ClientCard";
 import { InstallationCard } from "../../components/InstallationCard";
+
+//HOOKS
 import { useAuth } from "../../hooks/auth";
 
 export function Dashboard() {

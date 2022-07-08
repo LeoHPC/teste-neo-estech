@@ -1,9 +1,17 @@
+// REACT
+import { useCallback, useEffect, useState, useRef } from "react";
+
+// ANT-DESIGN
 import { Table, Button, Input, Space } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
-import { useCallback, useEffect, useState, useRef } from "react";
+
+// HIGHLIGHTER
 import Highlighter from "react-highlight-words";
 
+// COMPONENTS
 import { Loading } from "../../../components/Loading";
+
+// API
 import api from "../../../lib/api";
 
 export function OpenCalls() {

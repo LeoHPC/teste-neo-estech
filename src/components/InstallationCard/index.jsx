@@ -1,3 +1,4 @@
+// HOOKS
 import { useAuth } from "../../hooks/auth";
 
 export function InstallationCard({ prefix, name, installation }) {

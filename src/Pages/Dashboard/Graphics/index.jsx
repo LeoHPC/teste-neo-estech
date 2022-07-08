@@ -1,8 +1,11 @@
+// REACT
+import { useState, useCallback, useEffect } from "react";
+
+// DATE-FNS
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
-import { useState } from "react";
-import { useCallback, useEffect } from "react";
-import { Link } from "react-router-dom";
+
+// RECHARTS
 import {
   CartesianGrid,
   Legend,
@@ -14,11 +17,16 @@ import {
   YAxis,
 } from "recharts";
 
+// COMPONENTS
 import { CustomLegend } from "../../../components/CustomLegend";
 import { CustomTooltip } from "../../../components/CustomTooltip";
 import { Loading } from "../../../components/Loading";
 import { Redirect } from "../../../components/Redirect";
+
+// HOOKS
 import { useAuth } from "../../../hooks/auth";
+
+// API
 import api from "../../../lib/api";
 
 export function Graphics() {

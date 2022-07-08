@@ -1,9 +1,16 @@
-import { CloseOutlined, MenuOutlined, LogoutOutlined } from "@ant-design/icons";
+// REACT
 import { useState } from "react";
 import { Link } from "react-router-dom";
+// ANT-DESIGN
+import { CloseOutlined, MenuOutlined, LogoutOutlined } from "@ant-design/icons";
 
+// ASSETS
 import LogoImage from "../../assets/logo.png";
+
+// HOOKS
 import { useAuth } from "../../hooks/auth";
+
+// COMPONENTS
 import { SidebarData } from "./SidebarData";
 
 export function NavBar() {

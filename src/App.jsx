@@ -1,9 +1,12 @@
+// ANT-DESIGN
+import "antd/dist/antd.css";
 import { ConfigProvider } from "antd";
 import ptBR from "antd/lib/locale/pt_BR";
 
-import "antd/dist/antd.css";
-
+// ROUTES
 import { AppRoutes } from "./routes";
+
+// HOOKS
 import { AppProvider } from "./hooks";
 
 const App = () => {

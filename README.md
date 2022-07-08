@@ -50,6 +50,8 @@ Este projeto foi criado com as seguintes tecnologias:
 - Ant Design
 - Date FNS
 - Highlight Words
+- Axios
+- Vite
 
 ## :mag: Como visualizar
 
